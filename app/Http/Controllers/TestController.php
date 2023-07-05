@@ -13,5 +13,7 @@ class TestController extends Controller
         // return view('site.test', ['p1' => $p1, '' => $p2]); //array associativa
 
         return view('site.test', compact('p1', 'p2')); //compact()
+
+        // return view('site.test')->with('p1', $p1)->with('p2', $p2); //with()
     }
 }
