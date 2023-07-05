@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SobreNosController extends Controller
+class ContactController extends Controller
 {
-    public function sobreNos()
+    public function contact()
     {
-        return view('site.sobre-nos');
+        return view('site.contact');
     }
 }

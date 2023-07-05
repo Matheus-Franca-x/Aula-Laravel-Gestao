@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PrincipalController extends Controller
+class MainController extends Controller
 {
-    public function principal()
+    public function main()
     {
-        return view('site.principal');
+        return view('site.main');
     }
 }

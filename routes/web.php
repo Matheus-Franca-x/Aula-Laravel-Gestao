@@ -30,14 +30,24 @@ use Illuminate\Support\Facades\Route;
 // }
 // )->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+'); //teste
     
-Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
+Route::get('/', [\App\Http\Controllers\MainController::class, 'main'])->name('site.index');
+Route::get('/about-us', [\App\Http\Controllers\AboutUsController::class, 'aboutUs'])->name('site.aboutus');
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'contact'])->name('site.contact');
 Route::get('/login', function() {return "login";})->name('site.login');
 
 Route::prefix('/app')->group(function() 
 {
-    Route::get('/clientes', function() {return "clientes";})->name('app.clientes');
-    Route::get('/fornecedores', function() {return "fornecedores";})->name('app.fornecedores');
-    Route::get('/produtos', function() {return "produtos";})->name('app.produtos');
+    Route::get('/clients', function() {return "clients";})->name('app.clients');
+    Route::get('/suppliers', function() {return "suppliers";})->name('app.suppliers');
+    Route::get('/products', function() {return "products";})->name('app.products');
 });
+
+Route::get('/route1', function()
+{
+    echo 'rota 1';
+})->name('site.route1');
+
+Route::get('/route2', function()
+{
+    echo 'rota 2';
+})->name('site.route2');
