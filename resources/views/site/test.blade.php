@@ -8,6 +8,6 @@
         P2 = {{ $p2 }}
     </li>
     <li> 
-        Soma = <?php $sum = $p1 + $p2 ?> {{ $sum }}
+        Soma = <?= $p1 + $p2 ?>
     </li>
 </ul>
