@@ -6,25 +6,22 @@
 {{-- @dd($suppliers) --}}
 
 
-@if(count($suppliers) > 0 && count($suppliers) <= 10)
-    <h3>Há alguns fornecedores!</h3>
-@elseif(count($suppliers) > 10)
-    <h3>Há um monte de fornecedores!</h3>
-@else
-    <h3>Não há nenhum fornecedor!</h3>
-@endif
+@php
+    // if(isset($variavel)) {} //retorna se a variável está definida
+@endphp
 
-Fornecedor: <?= $suppliers[0]['nome']?>
-<br>
-Status: <?= $suppliers[0]['status']?>
-<br>
 
-@if(!($suppliers[0]['status'] == 'S'))
-    Fornecedor Inativo.
-@endif
-<br>
+<!-- Testa a existência da variável, caso exista, ela entra no método, caso não, apenas deixa de lado -->
+@isset($suppliers)
+    Fornecedor: {{ $suppliers[1]['nome'] }}
+    <br>
+    Status: {{ $suppliers[1]['status'] }}
+    <br>
+    @isset($suppliers[1]['cnpj']) <!-- caso exista ele funciona, caso não, não funciona -->
+        CNPJ: {{ $suppliers[0]['cnpj'] }}
+    @endisset
+@endisset
 
-@unless($suppliers[0]['status'] == 'S')
-    Fornecedor Inativo.
-@endunless
+
+
 
