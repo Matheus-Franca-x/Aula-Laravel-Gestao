@@ -14,18 +14,14 @@
 
 <!-- Testa a existência da variável, caso exista, ela entra no método, caso não, apenas deixa de lado -->
 @isset($suppliers)
-    Fornecedor: {{ $suppliers[0]['nome'] }}
-    <br>
-    Status: {{ $suppliers[0]['status'] }}
-    <br>
-    @isset($suppliers[0]['cnpj']) <!-- caso exista ele funciona, caso não, não funciona -->
-        CNPJ: {{ $suppliers[0]['cnpj'] }}
-        @empty($suppliers[0]['cnpj']) <!-- teste para ver se está vazio -->
-            - vazio
-        @endempty
-    @endisset
+    @foreach($suppliers as $indice => $supplier)
+        Fornecedor: {{ $supplier['nome'] }}
+        <br>
+        Status: {{ $supplier['status'] }}
+        <br>
+        CNPJ: {{ $supplier['cnpj'] ?? 'Dado não preenchido!' }} <!-- '' é um valor default -->
+        <br>
+        Telefone: ({{ $supplier['ddd'] ?? '' }}) {{ $supplier['telefone'] }}
+        <hr>
+    @endforeach
 @endisset
-
-
-
-
