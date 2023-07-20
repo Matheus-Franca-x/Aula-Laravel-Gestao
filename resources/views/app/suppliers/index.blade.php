@@ -14,7 +14,7 @@
 
 <!-- Testa a existência da variável, caso exista, ela entra no método, caso não, apenas deixa de lado -->
 @isset($suppliers)
-    @foreach($suppliers as $indice => $supplier)
+    @forelse($suppliers as $indice => $supplier)
         Fornecedor: {{ $supplier['nome'] }}
         <br>
         Status: {{ $supplier['status'] }}
@@ -23,5 +23,7 @@
         <br>
         Telefone: ({{ $supplier['ddd'] ?? '' }}) {{ $supplier['telefone'] }}
         <hr>
-    @endforeach
+    @empty
+        Não existem fornecedores cadastrados!
+    @endforelse
 @endisset
